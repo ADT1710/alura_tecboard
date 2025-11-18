@@ -12,6 +12,17 @@ function App() {
         { id: 5, nome: 'data science' },
         { id: 6, nome: 'cloud' }
     ];
+
+    const eventos = [
+        {
+            id: 1,
+            titulo: 'Mulheres no Front',
+            data: new Date(),
+            descricao: 'Valorizando e impulsionando a participação feminina no desenvolvimento front-end.',
+            tema: temas[0],
+            imagem: 'https://raw.githubusercontent.com/viniciosneves/tecboard-assets/refs/heads/main/imagem_1.png'
+        }
+    ]
   return (
     <main>
         <header><img src="/logo.png" alt=""/></header>
@@ -20,7 +31,7 @@ function App() {
 
         <div>
             {temas.map(tema =>
-                <Tema key={tema.id} nome={tema.nome}/>
+                <Tema key={tema.id} nome={tema.nome} eventos={eventos}/>
             )}
         </div>
     </main>
