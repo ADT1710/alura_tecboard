@@ -27,7 +27,7 @@ function App() {
     <main>
         <header><img src="/logo.png" alt=""/></header>
         <Banner imagem="/banner.png"/>
-        <FormularioDeEvento/>
+        <FormularioDeEvento itens={temas}/>
 
         <div>
             {temas.map(tema =>

@@ -7,7 +7,7 @@ import {Botao} from "../Botao/index.jsx"
 import {ListaSuspensa} from "../ListaSuspensa/index.jsx";
 
 
-export function FormularioDeEvento(){
+export function FormularioDeEvento({itens}){
     return (
         <form className='formulario-evento'>
             <FormularioTitulo>
@@ -21,13 +21,18 @@ export function FormularioDeEvento(){
                 </CampoDeFormulario>
 
                 <CampoDeFormulario>
+                    <Label htmlFor="capa">Insira o endereço da capa do evento</Label>
+                    <CampoDeEntrada type="text" id="capa" placeholder="https://..." name="capa"/>
+                </CampoDeFormulario>
+
+                <CampoDeFormulario>
                     <Label htmlFor="dataEevento">Data do evento</Label>
                     <CampoDeEntrada type="date" id="dataEevento" name="dataEevento"/>
                 </CampoDeFormulario>
 
                 <CampoDeFormulario>
                     <Label htmlFor="dataEevento">Tema do evento</Label>
-                    <ListaSuspensa/>
+                    <ListaSuspensa itens={itens}/>
                 </CampoDeFormulario>
             </div>
 
