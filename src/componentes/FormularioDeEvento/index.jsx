@@ -7,9 +7,22 @@ import {Botao} from "../Botao/index.jsx"
 import {ListaSuspensa} from "../ListaSuspensa/index.jsx";
 
 
-export function FormularioDeEvento({itens}){
+export function FormularioDeEvento({temas, eventos, aoSubmeter}){
+
+    function aoFormSubmetido(formData){
+        const evento = {
+            id: eventos.length + 1,
+            titulo: formData.get('nomeEvento'),
+            data: new Date(formData.get('dataEevento')),
+            descricao: '',
+            tema: temas.find(tema => tema.id === Number(formData.get('tema'))),
+            imagem: formData.get('capa')
+        }
+        aoSubmeter(evento)
+    }
+
     return (
-        <form className='formulario-evento'>
+        <form className='formulario-evento' action={aoFormSubmetido}>
             <FormularioTitulo>
                 Preencha para criar um evento:
             </FormularioTitulo>
@@ -32,7 +45,7 @@ export function FormularioDeEvento({itens}){
 
                 <CampoDeFormulario>
                     <Label htmlFor="dataEevento">Tema do evento</Label>
-                    <ListaSuspensa itens={itens}/>
+                    <ListaSuspensa itens={temas}/>
                 </CampoDeFormulario>
             </div>
 
